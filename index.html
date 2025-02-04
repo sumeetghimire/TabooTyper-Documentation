@@ -3,174 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TabooTyper Documentation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            padding: 20px;
-        }
-
-        h1, h2 {
-            padding: 10px;
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        h1 {
-            background-color: #3b82f6; /* Blue background */
-        }
-
-        h2 {
-            background-color: #10b981; /* Green background */
-        }
-
-        pre {
-            background-color: #2e2e2e;
-            color: #f8f8f2;
-            padding: 20px;
-            border-radius: 5px;
-            border: 2px solid #888;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        code {
-            font-size: 1.1em;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        .doc-section {
-            margin-bottom: 30px;
-        }
-
-        .highlight {
-            background-color: #ffeb3b;
-            color: #d32f2f;
-            padding: 3px 6px;
-            border-radius: 3px;
-        }
-    </style>
+    <meta name="description" content="Comprehensive guide on using TabooTyper, a JavaScript package for filtering and replacing banned words dynamically in text inputs. Ideal for content moderation, chat filtering, and profanity detection.">
+    <meta name="keywords" content="TabooTyper, JavaScript, word filter, banned words, text moderation, input validation, content moderation, profanity filter, chat moderation, inappropriate words, language filtering, automatic censorship, text filtering, real-time moderation, safe content, anti-swearing tool">
+    <meta name="author" content="TabooTyper Team">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="TabooTyper Documentation - JavaScript Word Filtering & Content Moderation">
+    <meta property="og:description" content="Learn how to integrate and use TabooTyper, a JavaScript package for filtering banned words in text fields. Enhance content moderation and user safety.">
+    <meta property="og:type" content="website">    <meta property="og:url" content="https://sumeetghimire.github.io/TabooTyper-Documentation/">
+    
+    <title>TabooTyper Documentation - Filter Banned Words in JavaScript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900">
 
-    <h1>TabooTyper Package Documentation</h1>
-    <p>Welcome to the documentation of the TabooTyper package. Below you will find the instructions on how to use the package along with the explanations of its settings.</p>
-    <h2>Installation</h2>
-    <p>To get started with the TabooTyper package, you need to include the JavaScript file in your project. The simplest way to do so is by including the CDN link directly in your HTML.</p>
-    
-    <pre><code>&lt;script src="https://cdn.jsdelivr.net/gh/sumeetghimire/TabooTyper/index.js"&gt;&lt;/script&gt;</code></pre>
-    
-    <p>Place this script tag just before the closing &lt;/body&gt; tag in your HTML file to ensure it loads after the page content.</p>
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-lg">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl font-extrabold text-center">TabooTyper Documentation</h1>
+            <p class="text-lg text-center mt-2">Filter and replace banned words in JavaScript effortlessly.</p>
+        </div>
+    </header>
 
-    <div class="doc-section">
-        <h2>How to Use</h2>
-        <p>To use the <strong>TabooTyper</strong> package, you need to include the JavaScript file in your project and initialize the <code>TabooTyper</code> class with the appropriate settings.</p>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2">Installation</h2>
+        <p class="mt-4">To include the package, add this script:</p>
         
-        <p>Here’s a sample setup:</p>
+        <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>&lt;script src="https://cdn.jsdelivr.net/gh/sumeetghimire/TabooTyper/index.js"&gt;&lt;/script&gt;</code></pre>
 
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;TabooTyper Demo&lt;/title&gt;
-    &lt;script src="https://cdn.jsdelivr.net/gh/sumeetghimire/TabooTyper/index.js"&gt;&lt;/script&gt; 
-&lt;/head&gt;
-&lt;body&gt;
+        <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2 mt-8">Usage</h2>
+        <p class="mt-4">Example of implementing TabooTyper:</p>
 
-    &lt;textarea placeholder="Type something..."&gt;&lt;/textarea&gt;
-    &lt;input type="text" placeholder="Type here too..." /&gt;
+        <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>&lt;script&gt;
+    new TabooTyper({
+        selector: "textarea, input",
+        bannedWords: { "dumb": "not smart", "stupid": "silly", "hate": "dislike", "bad": "unpleasant" },
+        masked: false,
+        maskCharacter: "#",
+        caseSensitive: false,
+        trackFrequency: true,
+        highlight: true,
+        suggestions: true,
+        contextSensitive: true,
+        warningStyle: "",
+        popupBackgroundColor: 'red',
+        popupTextColor: 'white'
+    });
+&lt;/script&gt;</code></pre>
 
-    &lt;script&gt;
-        new TabooTyper({
-            selector: "textarea, input",
-            bannedWords: {
-                "dumb": "not smart",
-                "stupid": "silly",
-                "hate": "dislike",
-                "bad": "unpleasant"
-            },
-            masked: false,
-            maskCharacter: "#",
-            caseSensitive: false,
-            trackFrequency: true,
-            highlight: true,
-            suggestions: true,
-            contextSensitive: true,
-            warningStyle: "",
-            popupBackgroundColor: 'red',
-            popupTextColor: 'white'
-        });
-    &lt;/script&gt;
+        <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2 mt-8">Settings Explanation</h2>
+        <ul class="mt-4 space-y-3">
+            <li class="bg-blue-100 p-3 rounded"><strong>selector:</strong> Targets elements like input and textarea.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>bannedWords:</strong> Object mapping words to their replacements.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>masked:</strong> If true, words are replaced with a masking character.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>maskCharacter:</strong> The character used for masking banned words.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>caseSensitive:</strong> If true, the filter considers case sensitivity.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>trackFrequency:</strong> Enables frequency tracking of banned words.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>highlight:</strong> Highlights banned words in the input.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>suggestions:</strong> Provides alternative suggestions for banned words.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>contextSensitive:</strong> Enables context-aware filtering.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>warningStyle:</strong> Custom styling for the warning message.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>popupBackgroundColor:</strong> Sets the background color of the warning popup.</li>
+            <li class="bg-blue-100 p-3 rounded"><strong>popupTextColor:</strong> Sets the text color of the warning popup.</li>
+        </ul>
+    </main>
 
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-    </div>
-
-    <div class="doc-section">
-        <h2>Settings Explanation</h2>
-        <p>The <code>TabooTyper</code> class accepts the following settings:</p>
-        
-        <h3>1. <code>selector</code></h3>
-        <p>The CSS selector that targets the elements where TabooTyper will be applied (e.g., textarea, input).</p>
-        <pre><code>selector: "textarea, input"</code></pre>
-
-        <h3>2. <code>bannedWords</code></h3>
-        <p>An object where keys are the words you want to ban and values are their replacements. Example:</p>
-        <pre><code>bannedWords: {
-            "dumb": "not smart",
-            "stupid": "silly",
-            "hate": "dislike",
-            "bad": "unpleasant"
-        }</code></pre>
-
-        <h3>3. <code>masked</code></h3>
-        <p>Set to <code>true</code> to replace the banned words with a masking character. Set to <code>false</code> to allow replacement without masking.</p>
-        <pre><code>masked: false</code></pre>
-
-        <h3>4. <code>maskCharacter</code></h3>
-        <p>The character to use for masking the banned words. Default is <code>"*"</code>.</p>
-        <pre><code>maskCharacter: "#"</code></pre>
-
-        <h3>5. <code>caseSensitive</code></h3>
-        <p>If set to <code>true</code>, the check for banned words will be case-sensitive. Set to <code>false</code> for a case-insensitive check.</p>
-        <pre><code>caseSensitive: false</code></pre>
-
-        <h3>6. <code>trackFrequency</code></h3>
-        <p>Set to <code>true</code> to track how often each banned word appears. This can be useful for analytics.</p>
-        <pre><code>trackFrequency: true</code></pre>
-
-        <h3>7. <code>highlight</code></h3>
-        <p>If set to <code>true</code>, banned words will be highlighted in the text. Example:</p>
-        <pre><code>highlight: true</code></pre>
-
-        <h3>8. <code>suggestions</code></h3>
-        <p>If set to <code>true</code>, users will be shown alternative words to replace the banned word with.</p>
-        <pre><code>suggestions: true</code></pre>
-
-        <h3>9. <code>contextSensitive</code></h3>
-        <p>Set to <code>true</code> to enable context-sensitive replacements. This means the system will consider the surrounding text before replacing a word.</p>
-        <pre><code>contextSensitive: true</code></pre>
-
-        <h3>10. <code>warningStyle</code></h3>
-        <p>Set a custom style for the warning popup that appears when a banned word is detected. Example:</p>
-        <pre><code>warningStyle: "color: red; font-weight: bold;"</code></pre>
-
-        <h3>11. <code>popupBackgroundColor</code></h3>
-        <p>The background color of the warning popup. Default is red. Example:</p>
-        <pre><code>popupBackgroundColor: 'blue'</code></pre>
-
-        <h3>12. <code>popupTextColor</code></h3>
-        <p>The text color of the warning popup. Default is white. Example:</p>
-        <pre><code>popupTextColor: 'yellow'</code></pre>
-    </div>
-    <footer style="background-color: #333; color: #fff; text-align: center; padding: 20px 0; margin-top: 40px;">
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6 mt-10">
         <p>&copy; 2025 TabooTyper. All rights reserved.</p>
-        <p>
-        </p>
     </footer>
+
 </body>
 </html>

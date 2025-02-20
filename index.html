@@ -10,32 +10,57 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="TabooTyper Documentation - JavaScript Word Filtering & Content Moderation">
     <meta property="og:description" content="Learn how to integrate and use TabooTyper, a JavaScript package for filtering banned words in text fields. Enhance content moderation and user safety.">
-    <meta property="og:type" content="website">    <meta property="og:url" content="https://sumeetghimire.github.io/TabooTyper-Documentation/">
+    <meta property="og:type" content="website">    
+    <meta property="og:url" content="https://sumeetghimire.github.io/TabooTyper-Documentation/">
     
     <title>TabooTyper Documentation - Filter Banned Words in JavaScript</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Enhancing Design */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50 text-gray-900">
 
     <!-- Header -->
     <header class="bg-blue-600 text-white py-6 shadow-lg">
         <div class="max-w-4xl mx-auto px-4">
             <h1 class="text-4xl font-extrabold text-center">TabooTyper Documentation</h1>
-            <p class="text-lg text-center mt-2">Filter and replace banned words in JavaScript effortlessly.</p>
+            <p class="text-lg text-center mt-2">Filter and replace banned words in JavaScript effortlessly. Enhance your content moderation, chat filtering, and profanity detection with TabooTyper.</p>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2">Installation</h2>
-        <p class="mt-4">To include the package, add this script:</p>
-        
-        <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>&lt;script src="https://cdn.jsdelivr.net/gh/sumeetghimire/TabooTyper/index.js"&gt;&lt;/script&gt;</code></pre>
 
-        <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2 mt-8">Usage</h2>
-        <p class="mt-4">Example of implementing TabooTyper:</p>
+        <!-- Installation Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2">Installation</h2>
+            <p class="mt-4">TabooTyper can be included in your project via either CDN or npm.</p>
 
-        <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>&lt;script&gt;
+            <!-- CDN Installation -->
+            <h3 class="text-xl font-semibold text-blue-600 mt-6">Using CDN</h3>
+            <p>Add the following script to your HTML:</p>
+            <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>&lt;script src="https://cdn.jsdelivr.net/gh/sumeetghimire/TabooTyper/index.js"&gt;&lt;/script&gt;</code></pre>
+
+            <!-- npm Installation -->
+            <h3 class="text-xl font-semibold text-blue-600 mt-6">Using npm</h3>
+            <p>To install TabooTyper via npm, run the following command in your project directory:</p>
+            <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>npm install taboo-typer</code></pre>
+            <p>Then, import it into your JavaScript file:</p>
+            <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>import TabooTyper from 'taboo-typer';</code></pre>
+        </section>
+
+        <!-- Usage Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2 mt-8">Usage</h2>
+            <p class="mt-4">To initialize TabooTyper, create a new instance and configure it according to your needs:</p>
+            <pre class="bg-gray-900 text-white p-4 rounded mt-3 overflow-x-auto"><code>&lt;script&gt;
     new TabooTyper({
         selector: "textarea, input",
         bannedWords: { "dumb": "not smart", "stupid": "silly", "hate": "dislike", "bad": "unpleasant" },
@@ -51,22 +76,39 @@
         popupTextColor: 'white'
     });
 &lt;/script&gt;</code></pre>
+        </section>
 
-        <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2 mt-8">Settings Explanation</h2>
-        <ul class="mt-4 space-y-3">
-            <li class="bg-blue-100 p-3 rounded"><strong>selector:</strong> Targets elements like input and textarea.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>bannedWords:</strong> Object mapping words to their replacements.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>masked:</strong> If true, words are replaced with a masking character.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>maskCharacter:</strong> The character used for masking banned words.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>caseSensitive:</strong> If true, the filter considers case sensitivity.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>trackFrequency:</strong> Enables frequency tracking of banned words.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>highlight:</strong> Highlights banned words in the input.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>suggestions:</strong> Provides alternative suggestions for banned words.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>contextSensitive:</strong> Enables context-aware filtering.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>warningStyle:</strong> Custom styling for the warning message.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>popupBackgroundColor:</strong> Sets the background color of the warning popup.</li>
-            <li class="bg-blue-100 p-3 rounded"><strong>popupTextColor:</strong> Sets the text color of the warning popup.</li>
-        </ul>
+        <!-- Settings Explanation Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2 mt-8">Settings Explanation</h2>
+            <ul class="mt-4 space-y-3">
+                <li class="bg-blue-100 p-3 rounded"><strong>selector:</strong> Targets elements like input and textarea.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>bannedWords:</strong> Object mapping words to their replacements.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>masked:</strong> If true, words are replaced with a masking character.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>maskCharacter:</strong> The character used for masking banned words.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>caseSensitive:</strong> If true, the filter considers case sensitivity.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>trackFrequency:</strong> Enables frequency tracking of banned words.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>highlight:</strong> Highlights banned words in the input.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>suggestions:</strong> Provides alternative suggestions for banned words.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>contextSensitive:</strong> Enables context-aware filtering.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>warningStyle:</strong> Custom styling for the warning message.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>popupBackgroundColor:</strong> Sets the background color of the warning popup.</li>
+                <li class="bg-blue-100 p-3 rounded"><strong>popupTextColor:</strong> Sets the text color of the warning popup.</li>
+            </ul>
+        </section>
+
+        <!-- Additional Features Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-blue-700 border-b-2 border-blue-400 pb-2 mt-8">Additional Features</h2>
+            <p class="mt-4">TabooTyper offers various features to enhance your content moderation experience:</p>
+            <ul class="mt-4 space-y-3">
+                <li class="bg-green-100 p-3 rounded"><strong>Real-Time Filtering:</strong> TabooTyper instantly filters out banned words as users type.</li>
+                <li class="bg-green-100 p-3 rounded"><strong>Context-Aware Filtering:</strong> The filter adapts based on the context of the word in the sentence.</li>
+                <li class="bg-green-100 p-3 rounded"><strong>Frequency Tracking:</strong> Keep track of how often banned words are used in a particular input field.</li>
+                <li class="bg-green-100 p-3 rounded"><strong>Customizable Warning Styles:</strong> You can customize the appearance of warning popups.</li>
+            </ul>
+        </section>
+
     </main>
 
     <!-- Footer -->
